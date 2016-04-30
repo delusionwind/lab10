@@ -61,12 +61,18 @@ public class Demo {
 		
 		CoinMachine machine = new CoinMachine( capacity );
 		Demo demo = new Demo();
-		//TODO add observers
+		
 		CoinMachineObserver observer1 = new CoinMachineObserver();
 		CoinAmountObserver observer2 = new CoinAmountObserver();
+		CoinBalanceObserver observer3 = new CoinBalanceObserver(machine);
+		
 		machine.addObserver(observer1);
 		machine.addObserver(observer2);
+		machine.addObserver(observer3);
+		
 		observer2.run();
+		observer3.run();
+		
 		demo.insertDialog(machine);
 	}
 }

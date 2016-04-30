@@ -54,6 +54,7 @@ public class CoinMachine extends Observable{
 	 *  Insert a coin into the machine.
 	 *  If the machine is full it returns false.
 	 *  If the coin is invalid, throw an exception.
+	 *  With successful addition, it notify the observer.
 	 *  @param m is a coin object to insert. Must not be null.
 	 *  @return true if coins successfully added, false if failure (machine full)
 	 *  @throws 
