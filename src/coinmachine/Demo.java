@@ -4,7 +4,7 @@ import java.util.Scanner;
 /**
  * Console dialog for inserting coins into Coin machine.
  * @author James Brucker
- *
+ * add more observers by Napon Kittisiriprasert
  */
 public class Demo {
 	// create a java.util.Scanner object for use in all methods

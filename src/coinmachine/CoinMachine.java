@@ -10,6 +10,7 @@ import java.util.Observable;
  *  and methods for inserting coins, getting the balance,
  *  and withdrawing coins.
  *  @author BTS and MRT
+ *  add observable by Napon Kittisiriprasert
  */
 public class CoinMachine extends Observable{
 	/** the coins it contains */

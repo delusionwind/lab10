@@ -5,17 +5,26 @@ import java.util.List;
 import java.util.Observable;
 import java.util.Observer;
 
-
+/**
+ * An Observer of the CoinMachine which shows what is observed with GUI.
+ * @author Napon Kittisiriprasert
+ */
 public class CoinAmountObserver extends JFrame implements Observer{
 	private JLabel coinLabel, statusLabel;
 	private JTextField numCoin;
 	
+	/**
+	 * Construct the CoinAmountObserver.
+	 */
 	public CoinAmountObserver() {
 		this.setTitle("CoinAmountObserverGUI");
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		initComponents();
 	}
 	
+	/**
+	 * create and add GUI components.
+	 */
 	private void initComponents() {
 		coinLabel = new JLabel("#Coins:");
 		statusLabel = new JLabel("Accepting Coins");
@@ -42,10 +51,20 @@ public class CoinAmountObserver extends JFrame implements Observer{
 		
 		this.add(layout);
 	}
+	
+	/**
+	 * Run the CoinAmountObserver when called.
+	 */
 	public void run() {
 		this.pack();
 		this.setVisible(true);
 	}
+	
+	/* 
+	 * Override the update method to update GUI.
+	 * @param o the Observable which notify changes.
+	 * @param arg the object sent when updated.
+	 */
 	@Override
 	public void update(Observable o, Object arg) {
 		if (o != null && o instanceof CoinMachine) {

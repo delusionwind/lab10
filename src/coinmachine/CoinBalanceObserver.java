@@ -9,6 +9,10 @@ import java.util.Observable;
 import java.util.Observer;
 import java.awt.event.*;
 
+/**
+ * An Observer which observe CoinMachine and can insert coin with GUI.
+ * @author Napon Kittisiriprasert
+ */
 public class CoinBalanceObserver extends JFrame implements Observer{
 	private JLabel balanceLabel, statusLabel;
 	private JProgressBar numCoins;
@@ -17,6 +21,10 @@ public class CoinBalanceObserver extends JFrame implements Observer{
 	private JPanel mainPanel, upperPanel, lowerPanel;
 	private CoinMachine coinMachine;
 	
+	/**
+	 * Constructor of the CoinBalanceObserver.
+	 * @param cm the CoinMachine.
+	 */
 	public CoinBalanceObserver(CoinMachine cm) {
 		this.coinMachine = cm;
 		this.setTitle("CoinBalanceObserverGUI");
@@ -24,6 +32,9 @@ public class CoinBalanceObserver extends JFrame implements Observer{
 		initComponents();
 	}
 	
+	/**
+	 * add GUI components for the CoinBalanceObserver.
+	 */
 	private void initComponents() {
 		balanceLabel = new JLabel("Balance: 0");
 		statusLabel = new JLabel("Status:");
@@ -75,11 +86,19 @@ public class CoinBalanceObserver extends JFrame implements Observer{
 		this.add(mainPanel);
 	}
 	
+	/**
+	 * Run the GUI of CoinBalanceObserver.
+	 */
 	public void run() {
 		this.pack();
 		this.setVisible(true);
 	}
 	
+	/**
+	 * Update the progress bar and balance when there is a change.
+	 * @param o the Observable which notify changes.
+	 * @param arg the object sent when updated.
+	 */
 	@Override
 	public void update(Observable o, Object arg) {
 		if(o != null && o instanceof CoinMachine) {
@@ -95,13 +114,23 @@ public class CoinBalanceObserver extends JFrame implements Observer{
 		}
 	}
 	
+	/**
+	 * Action Listener of coin insert button.
+	 */
 	class CoinButtonListener implements ActionListener {
 		private int inputMoney;
 		
+		/**
+		 * Constructor of coin button action listener.
+		 * @param inputMoney the amount of the coin to be added.
+		 */
 		public CoinButtonListener(int inputMoney) {
 			this.inputMoney = inputMoney;
 		}
 		
+		/* 
+		 * Insert Coin to the CoinMachine.
+		 */
 		public void actionPerformed( ActionEvent evt ) {
 			coinMachine.insert(new Coin(inputMoney));
 		}
