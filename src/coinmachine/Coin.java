@@ -65,7 +65,7 @@ public class Coin implements Comparable<Coin> {
 //     You can assume that the currency is never null.
 		if (obj instanceof Coin) {
 			Coin coinObj = (Coin) obj;
-			return this.getCurrency() == coinObj.getCurrency() && this.getValue() == coinObj.getValue();
+			return this.getCurrency().equals(coinObj.getCurrency()) && this.getValue() == coinObj.getValue();
 		}
 		return false;
 	}
